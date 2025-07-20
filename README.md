@@ -7,13 +7,7 @@
 From the project root, run:
 
 ```sh
-# Initialize Go module
-go mod init eventlog
-
-# Add the SQLite dependency
-go get github.com/mattn/go-sqlite3
-
-# Verify dependencies
+# Install dependencies
 go mod tidy
 ```
 

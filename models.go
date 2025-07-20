@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// Event represents a single event in the system
+// single event struct in the system
 type Event struct {
 	Timestamp time.Time       `json:"timestamp"`
 	UserID    int64           `json:"user_id"`
@@ -16,14 +16,14 @@ type Event struct {
 	Payload   json.RawMessage `json:"payload"`
 }
 
-// QueryFilters represents filters for querying events
+// filters for querying events
 type QueryFilters struct {
 	EventType string
 	From      time.Time
 	To        time.Time
 }
 
-// String returns the event in the required output format
+// returns the event in the required output format
 func (e *Event) String() string {
 	return fmt.Sprintf("%s | %d | %s | %s",
 		e.Timestamp.Format(time.RFC3339),
@@ -32,9 +32,9 @@ func (e *Event) String() string {
 		string(e.Payload))
 }
 
-// ParseEvent parses a line from the input file into an Event
+// parses a line from the input file into an Event
 func ParseEvent(line string) (*Event, error) {
-	// Split by " | " delimiter
+	// Split by " | "
 	parts := strings.Split(line, " | ")
 	if len(parts) != 4 {
 		return nil, fmt.Errorf("invalid format: expected 4 parts, got %d", len(parts))
