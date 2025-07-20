@@ -18,7 +18,7 @@ go mod tidy
 ```
 
 ```sh
-go build -o eventlog main.go
+go build -o eventlog .
 ```
 
 This will produce an executable named `eventlog` in your project directory.
@@ -28,8 +28,6 @@ This will produce an executable named `eventlog` in your project directory.
 To generate test event records (e.g., 1 million events):
 
 ```sh
-mkdir -p data
-
 # Generate small test data (1,000 events) - for quick testing
 go run data/generate_test_data.go data/events_small.txt 1000
 
@@ -72,8 +70,8 @@ rm -f events.db*
 
 time ./eventlog record data/events_1M.txt
 
-time ./eventlog query 0 > /dev/null
+time ./eventlog query 0
 
-time ./eventlog query 0 --from=2023-08-14T10:00:00Z --to=2023-08-14T12:00:00Z > /dev/null
+time ./eventlog query 0 --from=2023-08-14T10:00:00Z --to=2023-08-14T12:00:00Z
 
 ```
