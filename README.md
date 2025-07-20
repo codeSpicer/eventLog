@@ -31,13 +31,13 @@ To generate test event records (e.g., 1 million events):
 mkdir -p data
 
 # Generate small test data (1,000 events) - for quick testing
-go run generate_test_data.go data/events_small.txt 1000
+go run data/generate_test_data.go data/events_small.txt 1000
 
 # Generate medium test data (100,000 events) - for performance testing
-go run generate_test_data.go data/events_medium.txt 100000
+go run data/generate_test_data.go data/events_medium.txt 100000
 
 # Generate full test data (1,000,000 events) - for final testing
-go run generate_test_data.go data/events_1M.txt 1000000
+go run data/generate_test_data.go data/events_1M.txt 1000000
 ```
 
 ## Recording Events Using the Binary
